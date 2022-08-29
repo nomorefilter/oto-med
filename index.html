@@ -39,7 +39,6 @@
         //キャンバスに文字を描く
         function drawText(canvas_id, text_id, text_id2)
         {
-            document.getElementById('www').style.fontFamily = 'IoEI';
             var canvas = document.getElementById(canvas_id);
             var ctx = canvas.getContext('2d');
             ctx.clearRect(0, 0, 10000, 10000);
@@ -75,18 +74,15 @@
             oto2(3, '#ffffff', 270, 30, 430, 835, 20);
             oto2(4, '#ffffff', 380, 30, 710, 695, 10);
             ctx.rotate(-10 * Math.PI / 180);
-            document.getElementById('www').style.fontFamily = 'nicokaku';
             ctx.font = 'bold 109px nicokaku';
             ctx.fillStyle = '#f39500';
             ctx.fillText(text_in2, 218, 540);
-            document.getElementById('www').style.fontFamily = 'IoEI';
             oto(0, '#e73161', 410, 135, 515, -10);
             oto(1, '#00addc', 365, 530, 425, 10);
             oto(2, '#a561a4', 360, -115, 890, -20);
             oto(3, '#71ba2d', 270, 430, 835, 20);
             oto(4, '#ff65ac', 380, 710, 695, 10);
             ctx.rotate(-10 * Math.PI / 180);
-            document.getElementById('www').style.fontFamily = 'sans-serif';
         }
         function oto(nom, color, size, xx, yy, zz){
             var canvas = document.getElementById('preview');
