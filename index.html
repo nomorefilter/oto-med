@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" contact="おとわっかにより大ヒットしたおとめっどのロゴジェネレーター。">
+        <title>おとめっどロゴジェネレーター</title>
+        <link rel="stylesheet" href="css/sanitize.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="favicon.ico">
+    </head>
+    <body onload="drawText('preview', 'canvas_text', 'canvas_text2');">
+        <p class="hosa"><canvas id="preview"></canvas></p>
+        <p>
+        <input type="text" id="canvas_text" value="おとめっど">
+        <input type="text" id="canvas_text2" value="oto-med">
+        <button onclick="drawText('preview', 'canvas_text', 'canvas_text2');" class="btn btn-primary">生成</button>
+        <button id="download_button" class="btn btn-secondary">ダウンロードする</button>
+        </p>
+        <a id="download_link"></a>
+        <script>
+            const cvs = document.getElementById('preview');
+            cvs.setAttribute("width" , 1000);
+            cvs.setAttribute("height" , 1000);
+            /*//画像
+            var c1 = cvs.getContext('2d');
+            // Image オブジェクトを生成
+            var img1 = new Image();
+            img1.src = 'images/oto-med.jpg';
+            // 画像読み込み終了してから描画
+            img1.onload = function(){
+                c1.drawImage(img1, 0, 0, 1000, 1000);
+            }*/
+        //キャンバスに文字を描く
+        function drawText(canvas_id, text_id, text_id2)
+        {
+            var canvas = document.getElementById(canvas_id);
+            var ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, 10000, 10000);
+            let text = document.getElementById(text_id);
+            let text2 = document.getElementById(text_id2);
+            let text_in2 = text2.value;
+            let text_in = text.value;
+            let moji = [...text_in];
+            console.log(moji);
+            oto2(0, '#000000', 410, 50, 135, 515, -10);
+            oto2(1, '#000000', 365, 50, 530, 425, 10);
+            oto2(2, '#000000', 360, 50, -115, 890, -20);
+            oto2(3, '#000000', 270, 50, 430, 835, 20);
+            oto2(4, '#000000', 380, 50, 710, 695, 10);
+            ctx.rotate(-10 * Math.PI / 180);
+            ctx.beginPath();
+            ctx.ellipse(500, 505, 293, 265, 0, 0, Math.PI * 2, true);
+            ctx.fillStyle = "#ffffff";
+            ctx.fill();
+            ctx.strokeStyle = "#000000" ;
+            ctx.lineWidth = 10 ;
+            ctx.stroke();
+            /*//文字の配置を指定（左上基準にしたければtop/leftだが、文字の中心座標を指定するのでcenter
+            ctx.textBaseline = 'center';
+            ctx.textAlign = 'center';
+            //座標を指定して文字を描く（座標は画像の中心に）
+            var x = (canvas.width / 2);
+            var y = (canvas.height / 2);
+            ctx.fillText(text.value, x, y);*/
+            oto2(0, '#ffffff', 410, 30, 135, 515, -10);
+            oto2(1, '#ffffff', 365, 30, 530, 425, 10);
+            oto2(2, '#ffffff', 360, 30, -115, 890, -20);
+            oto2(3, '#ffffff', 270, 30, 430, 835, 20);
+            oto2(4, '#ffffff', 380, 30, 710, 695, 10);
+            ctx.rotate(-10 * Math.PI / 180);
+            ctx.font = 'bold 109px ニコ角';
+            ctx.fillStyle = '#f39500';
+            ctx.fillText(text_in2, 218, 540);
+            oto(0, '#e73161', 410, 135, 515, -10);
+            oto(1, '#00addc', 365, 530, 425, 10);
+            oto(2, '#a561a4', 360, -115, 890, -20);
+            oto(3, '#71ba2d', 270, 430, 835, 20);
+            oto(4, '#ff65ac', 380, 710, 695, 10);
+            ctx.rotate(-10 * Math.PI / 180);
+        }
+        function oto(nom, color, size, xx, yy, zz){
+            var canvas = document.getElementById('preview');
+            var ctx = canvas.getContext('2d');
+            let text = document.getElementById('canvas_text');
+            let text2 = text.value;
+            let moji = [...text2];
+            ctx.beginPath();
+            ctx.font = ''+ size +'px フィバ字';
+            console.log(size);
+            ctx.fillStyle = color;
+            ctx.rotate(zz * Math.PI / 180);
+            ctx.fillText(moji[nom], xx, yy);
+        }
+        function oto2(nom, color, size, size2, xx, yy, zz){
+            var canvas = document.getElementById('preview');
+            var ctx = canvas.getContext('2d');
+            let text = document.getElementById('canvas_text');
+            let text2 = text.value;
+            let moji = [...text2];
+            ctx.beginPath();
+            ctx.font = ''+ size +'px フィバ字';
+            console.log(size);
+            ctx.lineWidth = size2;
+            ctx.strokeStyle = color;
+            ctx.rotate(zz * Math.PI / 180);
+            ctx.strokeText(moji[nom], xx, yy);
+        }
+        var canvas = document.getElementById('preview');
+        var downloadLink = document.getElementById('download_link');
+        var filename = 'your-filename.png';
+        var button = document.getElementById('download_button');
+        button.addEventListener('click', function(){
+            if (canvas.msToBlob) {
+                var blob = canvas.msToBlob();
+                window.navigator.msSaveBlob(blob, filename);
+            } else {
+                downloadLink.href = canvas.toDataURL('image/png');
+                downloadLink.download = filename;
+                downloadLink.click();
+            }
+        });
+        </script>
+        </body>
+</html>

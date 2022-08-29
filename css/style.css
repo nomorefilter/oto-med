@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+body {
+    background-color: #ffffff;
+    src: url(font/IoEI.ttf);
+    src: url(font/nicokaku_v1.ttf);
+    width: 90%;
+    margin: auto;
+    max-width: 800px;
+    margin-top: 20px;
+}
+#preview {
+    width: 100%;
+    border: solid;
+    border-width: 2px;
+    border-color: #666666;
+}
