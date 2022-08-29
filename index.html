@@ -11,14 +11,18 @@
         <link rel="icon" href="favicon.ico">
     </head>
     <body onload="drawText('preview', 'canvas_text', 'canvas_text2');">
-        <p class="hosa"><canvas id="preview"></canvas></p>
+        <div class="hosa"><canvas id="preview"></canvas></div>
+        <div class="hosei">
         <p>
         <input type="text" id="canvas_text" value="おとめっど">
         <input type="text" id="canvas_text2" value="oto-med">
         <button onclick="drawText('preview', 'canvas_text', 'canvas_text2');" class="btn btn-primary">生成</button>
-        <button id="download_button" class="btn btn-secondary">ダウンロードする</button>
+        <button id="download_button" class="btn btn-secondary">ダウンロード</button>
         </p>
+        <p><b>↓高度な加工がしたい方↓</b><br>AviUtlを使用してより高度な加工ができます。<br>下のファイルをダウンロードして使ってください。<br>詳しくはファイルの中のreadme.txtを参照。<br><a href="data/oto-med.zip" download="oto-med.zip">zipファイルダウンロード</a></p>
+        <p>お問い合わせは<a href="https://twitter.com/intent/user?user_id=1440832091378257924" style="cursor: url(&quot;chrome-extension://ledmjlnkdlappilhaaihfhanlpdjjalm/rockhand.png&quot;), auto;">@SASSAS68982216</a>まで</p>
         <a id="download_link"></a>
+        </div>
         <script>
             const cvs = document.getElementById('preview');
             cvs.setAttribute("width" , 1000);
@@ -70,7 +74,7 @@
             oto2(3, '#ffffff', 270, 30, 430, 835, 20);
             oto2(4, '#ffffff', 380, 30, 710, 695, 10);
             ctx.rotate(-10 * Math.PI / 180);
-            ctx.font = 'bold 109px ニコ角';
+            ctx.font = 'bold 109px nicokaku';
             ctx.fillStyle = '#f39500';
             ctx.fillText(text_in2, 218, 540);
             oto(0, '#e73161', 410, 135, 515, -10);
@@ -87,7 +91,7 @@
             let text2 = text.value;
             let moji = [...text2];
             ctx.beginPath();
-            ctx.font = ''+ size +'px フィバ字';
+            ctx.font = ''+ size +'px IoEI';
             console.log(size);
             ctx.fillStyle = color;
             ctx.rotate(zz * Math.PI / 180);
@@ -100,7 +104,7 @@
             let text2 = text.value;
             let moji = [...text2];
             ctx.beginPath();
-            ctx.font = ''+ size +'px フィバ字';
+            ctx.font = ''+ size +'px IoEI';
             console.log(size);
             ctx.lineWidth = size2;
             ctx.strokeStyle = color;

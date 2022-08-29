@@ -1,17 +1,29 @@
 @charset "UTF-8";
-
+@font-face {
+    font-family: 'IoEI';
+    src: url(../font/IoEI.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'nicokaku';
+    src: url(font/nicokaku_v1.ttf) format('truetype');
+}
 body {
     background-color: #ffffff;
-    src: url(font/IoEI.ttf);
-    src: url(font/nicokaku_v1.ttf);
     width: 90%;
     margin: auto;
     max-width: 800px;
     margin-top: 20px;
+    font-family: nicokaku;
 }
 #preview {
     width: 100%;
     border: solid;
     border-width: 2px;
     border-color: #666666;
+}
+.hosa {
+    font-family: IoEI;
+}
+p {
+    font-family: sans-serif;
 }
