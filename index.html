@@ -113,7 +113,9 @@
         }
         var canvas = document.getElementById('preview');
         var downloadLink = document.getElementById('download_link');
-        var filename = 'your-filename.png';
+        let text = document.getElementById(text_id);
+        let text_in = text.value;
+        var filename = ''+ text_in +'.png';
         var button = document.getElementById('download_button');
         button.addEventListener('click', function(){
             if (canvas.msToBlob) {
