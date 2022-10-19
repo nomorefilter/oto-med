@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html id="id">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
             oto2(3, '#ffffff', 270, 30, 430, 835, 20);
             oto2(4, '#ffffff', 380, 30, 710, 695, 10);
             ctx.rotate(-10 * Math.PI / 180);
-            ctx.font = 'bold 109px nicokaku';
+            ctx.font = 'bold 109px sono2';
             ctx.fillStyle = '#f39500';
             ctx.fillText(text_in2, 218, 540);
             oto(0, '#e73161', 410, 135, 515, -10);
@@ -92,7 +92,7 @@
             let text2 = text.value;
             let moji = [...text2];
             ctx.beginPath();
-            ctx.font = ''+ size +'px IoEI';
+            ctx.font = ''+ size +'px sono1';
             console.log(size);
             ctx.fillStyle = color;
             ctx.rotate(zz * Math.PI / 180);
@@ -105,29 +105,23 @@
             let text2 = text.value;
             let moji = [...text2];
             ctx.beginPath();
-            ctx.font = ''+ size +'px IoEI';
+            ctx.font = ''+ size +'px sono1';
             console.log(size);
             ctx.lineWidth = size2;
             ctx.strokeStyle = color;
             ctx.rotate(zz * Math.PI / 180);
             ctx.strokeText(moji[nom], xx, yy);
         }
-        var canvas = document.getElementById('preview');
-        var downloadLink = document.getElementById('download_link');
-        let text = document.getElementById(text_id);
-        let text_in = text.value;
-        var filename = ''+ text_in +'.png';
-        var button = document.getElementById('download_button');
-        button.addEventListener('click', function(){
-            if (canvas.msToBlob) {
-                var blob = canvas.msToBlob();
-                window.navigator.msSaveBlob(blob, filename);
-            } else {
-                downloadLink.href = canvas.toDataURL('image/png');
-                downloadLink.download = filename;
-                downloadLink.click();
-            }
-        });
+        document.getElementById("download_button").onclick = (event) => {
+            let canvas = document.getElementById("preview");
+            let text = document.getElementById("canvas_text");
+            let text_in = text.value;
+            var filename = ''+ text_in +'.png';
+            let link = document.createElement("a");
+            link.href = canvas.toDataURL("image/png");
+            link.download = filename;
+            link.click();
+        }
         </script>
         </body>
 </html>

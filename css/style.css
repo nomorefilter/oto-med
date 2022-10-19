@@ -1,11 +1,11 @@
 @charset "UTF-8";
 @font-face {
-    font-family: IoEI;
+    font-family: sono1;
     src: url(../font/IoEI.ttf) format('truetype');
 }
 @font-face {
-    font-family: nicokaku;
-    src: url(font/nicokaku_v1.ttf) format('truetype');
+    font-family: sono2;
+    src: url(../font/nicokaku_v1.ttf) format('truetype');
 }
 body {
     background-color: #ffffff;
