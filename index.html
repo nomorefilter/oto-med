@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" contact="おとわっかにより大ヒットしたおとめっどのロゴジェネレーター。">
+        <meta name="description" contact="おとわっかなどの作品により大ヒットしたおとめっどのロゴジェネレーター。">
         <title>おとめっどロゴジェネレーター</title>
         <link rel="stylesheet" href="css/sanitize.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -12,20 +12,18 @@
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172770628-8"></script>
         <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'UA-172770628-8');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date())
+            gtag('config', 'UA-172770628-8');
         </script>
-        
     </head>
     <body onload="drawText('preview', 'canvas_text', 'canvas_text2');" id="www">
-        <div class="hosa"><canvas id="preview"></canvas></div>
-        <div class="hosei">
+        <canvas id="preview"></canvas>
         <p>
         <input type="text" id="canvas_text" value="おとめっど">
         <input type="text" id="canvas_text2" value="oto-med">
+        <input type="range" id="range" min="90" max="130" value="109">
         <button onclick="drawText('preview', 'canvas_text', 'canvas_text2');" class="btn btn-primary">生成</button>
         <button id="download_button" class="btn btn-secondary">ダウンロード</button>
         </p>
@@ -37,16 +35,6 @@
             const cvs = document.getElementById('preview');
             cvs.setAttribute("width" , 1000);
             cvs.setAttribute("height" , 1000);
-            /*//画像
-            var c1 = cvs.getContext('2d');
-            // Image オブジェクトを生成
-            var img1 = new Image();
-            img1.src = 'images/oto-med.jpg';
-            // 画像読み込み終了してから描画
-            img1.onload = function(){
-                c1.drawImage(img1, 0, 0, 1000, 1000);
-            }*/
-        //キャンバスに文字を描く
         function drawText(canvas_id, text_id, text_id2)
         {
             var canvas = document.getElementById(canvas_id);
@@ -57,6 +45,9 @@
             let text_in2 = text2.value;
             let text_in = text.value;
             let moji = [...text_in];
+            let range = document.getElementById('range');
+            let range2 = range.value
+            console.log(range2);
             console.log(moji);
             oto2(0, '#000000', 410, 50, 135, 515, -10);
             oto2(1, '#000000', 365, 50, 530, 425, 10);
@@ -71,20 +62,13 @@
             ctx.strokeStyle = "#000000" ;
             ctx.lineWidth = 10 ;
             ctx.stroke();
-            /*//文字の配置を指定（左上基準にしたければtop/leftだが、文字の中心座標を指定するのでcenter
-            ctx.textBaseline = 'center';
-            ctx.textAlign = 'center';
-            //座標を指定して文字を描く（座標は画像の中心に）
-            var x = (canvas.width / 2);
-            var y = (canvas.height / 2);
-            ctx.fillText(text.value, x, y);*/
             oto2(0, '#ffffff', 410, 30, 135, 515, -10);
             oto2(1, '#ffffff', 365, 30, 530, 425, 10);
             oto2(2, '#ffffff', 360, 30, -115, 890, -20);
             oto2(3, '#ffffff', 270, 30, 430, 835, 20);
             oto2(4, '#ffffff', 380, 30, 710, 695, 10);
             ctx.rotate(-10 * Math.PI / 180);
-            ctx.font = 'bold 109px sono2';
+            ctx.font = 'bold '+ range2 +'px sono2';
             ctx.fillStyle = '#f39500';
             ctx.fillText(text_in2, 218, 540);
             oto(0, '#e73161', 410, 135, 515, -10);
