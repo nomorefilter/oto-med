@@ -24,7 +24,7 @@
         <input type="text" id="canvas_text" value="おとめっど">
         <input type="text" id="canvas_text2" value="oto-med">
         <input type="range" id="range" min="90" max="130" value="109">
-        <button onclick="drawText('preview', 'canvas_text', 'canvas_text2');" class="btn btn-primary">生成</button>
+        <button id="generator_button" onclick="drawText('preview', 'canvas_text', 'canvas_text2');" class="btn btn-primary">生成</button>
         <button id="download_button" class="btn btn-secondary">ダウンロード</button>
         </p>
         <p><b>↓高度な加工がしたい方↓</b><br>AviUtlを使用してより高度な加工ができます。<br>下のファイルをダウンロードして使ってください。<br>詳しくはファイルの中のreadme.txtを参照。<br><a href="data/oto-med.zip" download="oto-med.zip">zipファイルダウンロード</a></p>
@@ -115,6 +115,8 @@
             link.download = filename;
             link.click();
         }
+        // 二回動かさないとなんかフォントがバグるんよね
+        drawText('preview', 'canvas_text', 'canvas_text2');
         </script>
         </body>
 </html>
