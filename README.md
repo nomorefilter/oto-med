@@ -16,4 +16,4 @@ CSS
 MIT
 
 ## 作者
-nomorefilter [@SASSAS68982216](https://twitter.com/SASSAS68982216)
+SAS新聞
