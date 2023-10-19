@@ -1,9 +1,10 @@
-## [おとめっどロゴジェネレーター](https://www.otomed.tk)
+## [おとめっどロゴジェネレーター](https://oto-med.web.app)
 このプログラムはおとめっど風のロゴを製作できるジェネレーターです。
 
 ## 使用言語
 HTML
 CSS
+JavaScript
 
 ## 仕様フォント
 
